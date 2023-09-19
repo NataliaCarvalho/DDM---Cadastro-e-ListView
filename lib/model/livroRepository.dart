@@ -16,6 +16,10 @@ class LivroRepository {
   void adicionar (Livro livro){
     _listaLivros.add(livro);
   }
+  
+  static void remover (Livro livro){
+    _listaLivros.remove(livro);
+  }
 
   static List <Livro> get getLivros => _listaLivros;
 
@@ -26,5 +30,7 @@ class LivroRepository {
 
     print("================================================");
   }
+
+
 
 }

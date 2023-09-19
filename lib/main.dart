@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_listview/home.dart';
-import 'package:flutter_application_listview/list.dart';
-import 'package:flutter_application_listview/cadastro.dart';
+import 'package:flutter_application_listview/paginas/alterar.dart';
+import 'package:flutter_application_listview/paginas/home.dart';
+import 'package:flutter_application_listview/paginas/list.dart';
+import 'package:flutter_application_listview/paginas/cadastro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Home(),
         '/cadastro': (context) => const Cadastro(),
         '/ListaPage': (context) => const ListaPage(),
+        //'/alterar':(context) => const Alterar(),
       },
     );
   }

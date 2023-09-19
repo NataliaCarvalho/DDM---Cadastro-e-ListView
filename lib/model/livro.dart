@@ -1,10 +1,10 @@
 class Livro {
-  int _preco = 0;
+  num _preco = 0;
   String _nome = "";
 
- int get preco => this._preco;
+  num get preco => this._preco;
 
- set preco(int value) => this._preco = value;
+ set preco(num value) => this._preco = value;
 
  get nome => this._nome;
 

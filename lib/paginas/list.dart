@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_listview/model/livroRepository.dart';
+import 'package:flutter_application_listview/paginas/alterar.dart';
+
+import '../model/livro.dart';
 
 
 class ListaPage extends StatefulWidget {
@@ -30,7 +33,26 @@ class _ListaPageState extends State<ListaPage> {
               title: Text("${listaLivros[index].nome}", style: TextStyle(fontSize: 18, color: Colors.indigo, fontWeight:FontWeight.bold)),
               subtitle: Text("Preço: ${listaLivros[index].preco},00"),
               leading: CircleAvatar (child: Text(listaLivros[index].nome[0], style: TextStyle(fontSize: 18, color: Colors.indigo, fontWeight:FontWeight.bold))),
-              trailing: Icon(Icons.book, color: Colors.indigo, size: 30,),
+              trailing: SizedBox( width: 70,
+              child: Row( children: [
+                Expanded(child: IconButton(onPressed: () {
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context){
+                    return Alterar(listaLivros[index], index);
+                  },));
+
+                }, icon: Icon(Icons.edit, color: Colors.indigo,))),
+                Expanded(child: IconButton(onPressed: () {
+                  Livro livro = listaLivros[index];
+                  LivroRepository.remover(livro);
+                  setState(() {
+                    
+                  });
+                }, icon: Icon(Icons.delete, color: Colors.indigo,))),
+                
+              ],
+              ),
+              ),
             );
           },
           separatorBuilder: (BuildContext context, int index) => Divider(thickness: 4),
